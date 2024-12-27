@@ -41,15 +41,15 @@ Route::get('/film/{id}', [FilmController::class, 'show'])->name('film.show');
 
 Route::get('/filmcast', [FilmCastController::class, 'index'])->name('film_cast.index');
 Route::get('/filmcast/{id}', [FilmCastController::class, 'show'])->name('film_cast.show');
-    
+
 Route::get('/review', [ReviewController::class, 'index'])->name('review.index');
 Route::get('/review/{id}', [ReviewController::class, 'show'])->name('review.show');
 Route::get('/test', function () {
     return 'Hello, Laravel!';
 });
 
+Route::get('/table', [DashboardController::class, 'indexLogin'])->name('dashboard-data');
 Route::middleware('auth')->group(function () {
-    Route::get('/table', [DashboardController::class, 'indexLogin'])->name('dashboard-data');
     // Cast Routes
     Route::get('/cas/create', [CastController::class, 'create'])->name('cast.create');
     Route::post('/cast', [CastController::class, 'store'])->name('cast.store');
@@ -85,8 +85,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/review/{id}/edit', [ReviewController::class, 'edit'])->name('review.edit');
     Route::put('/review/{id}', [ReviewController::class, 'update'])->name('review.update');
     Route::delete('/review/{id}', [ReviewController::class, 'destroy'])->name('review.destroy');
-    
-    Route::get('/profile', [ProfilController::class, 'show'])->name('profile.show'); 
-    Route::get('/profile', [ProfilController::class, 'edit'])->name('profile.edit'); 
-    Route::put('/profile', [ProfilController::class, 'update'])->name('profile.update'); 
+
+    Route::get('/profile', [ProfilController::class, 'show'])->name('profile.show');
+    Route::get('/profile', [ProfilController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfilController::class, 'update'])->name('profile.update');
 });

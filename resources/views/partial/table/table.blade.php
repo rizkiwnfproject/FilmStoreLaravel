@@ -46,8 +46,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img class="img-fluid mb-3" src="{{ asset('/assets/images/angelina.jpg') }}"
-                                            alt="{{ $film->title }}">
+                                        <img src="{{ asset('uploads/' . $film->poster) }}" alt="Poster" class="img-thumbnail" style="height: 300px; object-fit: cover; object-position: top ; width: 100%;">
                                         <p><strong>Genre:</strong> {{ $film->genre->name }}</p>
 
                                         <!-- Menampilkan Rating Rata-rata -->

@@ -24,17 +24,19 @@
                     @endforeach
                 </ol>
             </div>
-            @if (Auth::user()->role == 0)
-                <div class="d-flex">
-                    <button type="button" class="btn btn-primary mb-3 mr-4">
-                        <a href="{{ route('review.create') }}" class="text-white">Add New Review</a>
-                    </button>
-                    <button type="button" class="btn btn-primary mb-3 mr-4">
-                        <a href="{{ route('review.indexById', $film->first()->film->id) }}" class="text-white">See This
-                            Reviews</a>
-                    </button>
-                </div>
-            @endif
+            @auth
+                @if (Auth::user()->role == 0)
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary mb-3 mr-4">
+                            <a href="{{ route('review.create') }}" class="text-white">Add New Review</a>
+                        </button>
+                        <button type="button" class="btn btn-primary mb-3 mr-4">
+                            <a href="{{ route('review.indexById', $film->first()->film->id) }}" class="text-white">See This
+                                Reviews</a>
+                        </button>
+                    </div>
+                @endif
+            @endauth
         </div>
     </div>
     <a href="{{ route('film_cast.index') }}" class="btn btn-secondary mt-3 ml-4">Back to List</a>

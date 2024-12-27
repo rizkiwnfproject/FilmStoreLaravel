@@ -51,7 +51,7 @@
                             <td>
                                 <a href="{{ route('film_cast.show', $film->film->id) }}" class="btn btn-info">View</a>
                                 {{-- <a href="{{ route('film_cast.edit', $film->id) }}" class="btn btn-warning">Edit</a> --}}
-                                <form action="{{ route('film_cast.destroy', $film->id) }}" method="POST"
+                                <form action="{{ route('film_cast.destroy', $film->film->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')
@@ -65,7 +65,7 @@
                         @endif
                     @else
                         <td>
-                            <a href="{{ route('film_cast.show', $film->id) }}" class="btn btn-info">View</a>
+                            <a href="{{ route('film_cast.show', $film->film->id) }}" class="btn btn-info">View</a>
                         </td>
                     @endauth
                 </tr>
